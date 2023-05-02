@@ -2,10 +2,12 @@ const express=require("express");
 const { connection } = require("./Config/db");
 const { registerRouter } = require("./Routes/register.routes");
 const { LoginRouter } = require("./Routes/login.routes");
+const cors=require("cors");
 
 
 const app=express();
 app.use(express.json());
+app.use(cors());
 
 app.use("/users", registerRouter);
 app.use("/users", LoginRouter);
